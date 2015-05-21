@@ -5,6 +5,10 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.1'
 gem 'bootstrap-sass', '3.3.1'
 gem 'sprockets', '2.11.0'
+gem 'rails_admin'
+gem 'devise'
+gem 'pry'
+gem 'pry-rails'
 
 # Use mysql as the database for Active Record
 gem 'mysql2'
