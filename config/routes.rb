@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   end
 
   resources :users
+  resources :products
   root to: 'users#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
