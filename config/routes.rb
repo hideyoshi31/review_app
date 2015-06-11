@@ -6,7 +6,6 @@ Rails.application.routes.draw do
     resources :users
   end
 
-  resources :users
   resources :products
   root to: 'users#index'
 
@@ -64,4 +63,6 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
+  get '*path', controller: 'application', action: 'render_404'
 end
