@@ -4,4 +4,10 @@ class AdminUser < ActiveRecord::Base
   devise :database_authenticatable,
          #:registerable,:recoverable,
          :rememberable, :trackable, :validatable
+
+  def sys_admin?
+  end
+
+  def product_manager?
+  end
 end

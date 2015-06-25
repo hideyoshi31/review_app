@@ -9,6 +9,7 @@ gem 'rails_admin'
 gem 'devise'
 gem 'pry'
 gem 'pry-rails'
+gem 'cancancan'
 
 
 # Use SCSS for stylesheets
