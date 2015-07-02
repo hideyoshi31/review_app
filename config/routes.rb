@@ -1,14 +1,4 @@
 Rails.application.routes.draw do
-  devise_for :admin_users
-  mount RailsAdmin::Engine => '/admin_user', as: 'rails_admin'
-
-  namespace :api, { format: 'json' } do
-    resources :users
-  end
-
-  resources :users
-  root to: 'users#index'
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
