@@ -8,8 +8,10 @@
       <th>Name</th>
       <th>Star</th>
       <th>Comment</th>
-      <th>Product</th>
+      <th>ProductID</th>
+      <% if(current_user.id == 1) %>
       <th>User</th>
+      <% end %>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -22,7 +24,9 @@
           <td><%= reviewer.star %></td>
           <td><%= reviewer.comment %></td>
           <td><%= reviewer.product_id %></td>
+          <% if(current_user.id == 1) %>
           <td><%= reviewer.user_id %></td>
+          <% end %>
           <td><%= link_to 'Show', reviewer %></td>
           <td><%= link_to 'Edit', edit_reviewer_path(reviewer) %></td>
           <td><%= link_to 'Destroy', reviewer, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs visited-none' %></td>
@@ -34,4 +38,6 @@
 
 <br>
 
-<%= link_to 'New Reviewer', new_reviewer_path, class: 'btn btn-primary visited-none' %>
+<% if(current_user.id == 1) %>
+  <%= link_to 'New Reviewer', new_reviewer_path, class: 'btn btn-primary visited-none' %>
+<% end %>
