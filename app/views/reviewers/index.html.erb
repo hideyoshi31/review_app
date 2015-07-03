@@ -16,16 +16,18 @@
 
   <tbody>
     <% @reviewers.each do |reviewer| %>
-      <tr>
-        <td><%= reviewer.name %></td>
-        <td><%= reviewer.star %></td>
-        <td><%= reviewer.comment %></td>
-        <td><%= reviewer.product_id %></td>
-        <td><%= reviewer.user_id %></td>
-        <td><%= link_to 'Show', reviewer %></td>
-        <td><%= link_to 'Edit', edit_reviewer_path(reviewer) %></td>
-        <td><%= link_to 'Destroy', reviewer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <% if((current_user.id == reviewer.user_id)||(current_user.id == 1)) %>
+        <tr>
+          <td><%= reviewer.name %></td>
+          <td><%= reviewer.star %></td>
+          <td><%= reviewer.comment %></td>
+          <td><%= reviewer.product_id %></td>
+          <td><%= reviewer.user_id %></td>
+          <td><%= link_to 'Show', reviewer %></td>
+          <td><%= link_to 'Edit', edit_reviewer_path(reviewer) %></td>
+          <td><%= link_to 'Destroy', reviewer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>
