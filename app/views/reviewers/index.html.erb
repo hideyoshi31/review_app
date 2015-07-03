@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Reviewers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Star</th>
+      <th>Comment</th>
+      <th>Product</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @reviewers.each do |reviewer| %>
+      <tr>
+        <td><%= reviewer.name %></td>
+        <td><%= reviewer.star %></td>
+        <td><%= reviewer.comment %></td>
+        <td><%= reviewer.product_id %></td>
+        <td><%= link_to 'Show', reviewer %></td>
+        <td><%= link_to 'Edit', edit_reviewer_path(reviewer) %></td>
+        <td><%= link_to 'Destroy', reviewer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Reviewer', new_reviewer_path %>
