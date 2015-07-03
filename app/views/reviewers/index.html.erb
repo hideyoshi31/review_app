@@ -2,7 +2,7 @@
 
 <h1>Listing Reviewers</h1>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Name</th>
@@ -25,7 +25,7 @@
           <td><%= reviewer.user_id %></td>
           <td><%= link_to 'Show', reviewer %></td>
           <td><%= link_to 'Edit', edit_reviewer_path(reviewer) %></td>
-          <td><%= link_to 'Destroy', reviewer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Destroy', reviewer, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs visited-none' %></td>
         </tr>
       <% end %>
     <% end %>
@@ -34,4 +34,4 @@
 
 <br>
 
-<%= link_to 'New Reviewer', new_reviewer_path %>
+<%= link_to 'New Reviewer', new_reviewer_path, class: 'btn btn-primary visited-none' %>
