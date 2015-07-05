@@ -16,7 +16,16 @@
     <%= f.text_field :name %>
   </div>
 
-  <%= f.hidden_field :user_id, :value => current_user.id %>
+
+
+  <% if(current_user.id == 1) %>
+    <div class="field">
+      <%= f.label :user_id %><span class="text-danger">（必須）</span><br>
+      <%= f.number_field :user_id %>
+    </div>
+  <% else %>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+  <% end %>
 
   <div class="actions">
     <%= f.submit %>
