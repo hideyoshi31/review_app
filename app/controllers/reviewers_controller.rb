@@ -12,6 +12,7 @@ class ReviewersController < ApplicationController
   def show
   end
 
+
   # GET /reviewers/new
   def new
     @reviewer = Reviewer.new
