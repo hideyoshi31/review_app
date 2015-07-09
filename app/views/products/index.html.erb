@@ -21,7 +21,7 @@
           <% if(current_user.id == 1) %>
             <td><%= product.user_id %></td>
           <% end %>
-          <td><%= link_to 'Review', { :controller => :reviewers, :action => :view, :id => product.id } %></td>
+          <td><%= link_to 'Review', { :controller => :reviewers, :action => :view, :id => product.id }, class: 'btn btn-success btn-xs'  %></td>
           <td><%= link_to 'Show', product %></td>
           <td><%= link_to 'Edit', edit_product_path(product) %></td>
           <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %></td>
