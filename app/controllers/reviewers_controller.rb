@@ -62,6 +62,10 @@ class ReviewersController < ApplicationController
     end
   end
 
+  def view
+    @reviewers = Product.find(params[:id]).reviewers
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_reviewer
