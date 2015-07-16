@@ -14,7 +14,7 @@
 
   <tbody>
     <% @reviewers.each do |reviewer| %>
-      <% if((current_user.id == reviewer.user_id)||(current_user.id == 1)) %>
+      <% if(current_user.id == 1) %>
         <tr>
           <td><%= reviewer.name %></td>
           <td><%= reviewer.star %></td>

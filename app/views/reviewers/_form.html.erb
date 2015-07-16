@@ -19,22 +19,21 @@
     <%= f.label :star %><span class="text-danger">（必須）</span><br>
     <%= f.number_field :star %>
   </div>
+
   <div class="field">
     <%= f.label :comment %><span class="text-danger">（必須）</span><br>
     <%= f.text_field :comment %>
   </div>
-  
-  <% if(current_user.id == 1) %>
-  <div class="field">
-    <%= f.label :product_id %><span class="text-danger">（必須）</span><br>
-    <%= f.number_field :product_id %>
-  </div>
-    <div class="field">
-      <%= f.label :user_id %><span class="text-danger">（必須）</span><br>
-      <%= f.number_field :user_id %>
-    </div>
-  <% end %>
 
+  <% if(current_user.id == 1) %>
+    <div class="field">
+      <%= f.label :product_id %><span class="text-danger">（必須）</span><br>
+      <%= f.number_field :product_id %>
+    </div>
+  <% else %>
+    <%= f.hidden_field :product_id, :value => @reviewer.product_id %>
+  <% end %>
+  
   <div class="actions">
     <%= f.submit %>
   </div>
