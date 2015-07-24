@@ -1,5 +1,6 @@
 class ReviewersController < ApplicationController
   before_action :set_reviewer, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:new, :create]
 
   # GET /reviewers
   # GET /reviewers.json
@@ -27,15 +28,12 @@ class ReviewersController < ApplicationController
   def create
     @reviewer = Reviewer.new(reviewer_params)
 
-    respond_to do |format|
       if @reviewer.save
-        format.html { redirect_to @reviewer, notice: 'Reviewer was successfully created.' }
-        format.json { render :show, status: :created, location: @reviewer }
+        render :text => "投稿を受付ました。"
       else
-        format.html { render :new }
-        format.json { render json: @reviewer.errors, status: :unprocessable_entity }
+        #format.html { render :new }
+        #format.json { render json: @reviewer.errors, status: :unprocessable_entity }
       end
-    end
   end
 
   # PATCH/PUT /reviewers/1
