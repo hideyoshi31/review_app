@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Post Source</h1>
+<h2>Post Source</h2>
 
 <pre class="prettyprint linenums"><code>
 
@@ -26,5 +26,41 @@
     &lt;input type="submit" name="commit" value="Create Reviewer" /&gt;
   &lt;/div&gt;
 &lt;/form&gt;
+
+</code></pre>
+
+
+
+<h2>Reviewer Source</h2>
+
+<pre class="prettyprint linenums"><code>
+
+&lt;table cellpadding="0" cellspacing="0" border="0" class="tbl"&gt;
+&lt;col width="15%" /&gt;
+&lt;col width="15%" /&gt;
+&lt;col width="70%" /&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;script src="http://code.jquery.com/jquery-1.10.2.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+$(function(){
+  $("table.tbl tbody").html("");
+  $.getJSON("http://localhost:3000/products/<%= @productid.id %>/reviewers.json", function(data){
+    $(data).each(function(){
+      $('&lt;tr&gt;'+
+        '&lt;th&gt;'+this.name+'&lt;/th&gt;'+
+        '&lt;td class="label"&gt;&lt;span class="' + this.star + '"&gt;' +
+        this.comment + '&lt;/span&gt;&lt;/td&gt;'+
+    '&lt;/tr&gt;').appendTo('table.tbl tbody');
+    })
+  })
+});
+&lt;/script&gt;
+
 
 </code></pre>
