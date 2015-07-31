@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Post Source</h1>
+
+<pre class="prettyprint linenums"><code>
+
+&lt;form class="new_reviewer" id="new_reviewer" action="http://localhost:3000/reviewers" accept-charset="UTF-8" method="post"&gt;&lt;input name="utf8" type="hidden" value="&#x2713;" /&gt;
+&lt;input type="hidden" name="authenticity_token" value="iO209CerTxqrp8tcEyNXDKF5sOuHNuJsycGlrxyJpzMpC0jX9doObntXoPKNILWDbbR1hIXrSPphQLm4SOhLGg==" /&gt;
+  &lt;div class="field"&gt;
+    &lt;label for="reviewer_name"&gt;Name&lt;/label&gt;&lt;span class="text-danger"&gt;（必須）&lt;/span&gt;&lt;br&gt;
+    &lt;input type="text" name="reviewer[name]" id="reviewer_name" /&gt;
+  &lt;/div&gt;
+  &lt;div class="field"&gt;
+    &lt;label for="reviewer_star"&gt;Star&lt;/label&gt;&lt;span class="text-danger"&gt;（必須）&lt;/span&gt;&lt;br&gt;
+    &lt;input type="number" name="reviewer[star]" id="reviewer_star" /&gt;
+  &lt;/div&gt;
+
+  &lt;div class="field"&gt;
+    &lt;label for="reviewer_comment"&gt;Comment&lt;/label&gt;&lt;span class="text-danger"&gt;（必須）&lt;/span&gt;&lt;br&gt;
+    &lt;input type="text" name="reviewer[comment]" id="reviewer_comment" /&gt;
+  &lt;/div&gt;
+
+&lt;input name="reviewer[product_id]" type="hidden" value="<%= @productid.id %>" /&gt;
+  
+  &lt;div class="actions"&gt;
+    &lt;input type="submit" name="commit" value="Create Reviewer" /&gt;
+  &lt;/div&gt;
+&lt;/form&gt;
+
+</code></pre>
