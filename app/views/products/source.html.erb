@@ -53,8 +53,9 @@ $(function(){
   $.getJSON("http://review31.herokuapp.com/products/<%= @productid.id %>/reviewers.json", function(data){
     $(data).each(function(){
       $('&lt;tr&gt;'+
-        '&lt;th&gt;'+this.name+'&lt;/th&gt;'+
-        '&lt;td class="label"&gt;&lt;span class="' + this.star + '"&gt;' +
+      '&lt;td class="label"&gt;' + this.name + '&lt;/span&gt;&lt;/td&gt;'+
+        '&lt;td class="label"&gt;' + this.star + '&lt;/span&gt;&lt;/td&gt;'+
+        '&lt;td class="label"&gt;' + this.comment + '&lt;/span&gt;&lt;/td&gt;'+
         this.comment + '&lt;/span&gt;&lt;/td&gt;'+
     '&lt;/tr&gt;').appendTo('table.tbl tbody');
     })
