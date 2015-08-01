@@ -12,30 +12,35 @@ function DoCopy(name,form,sw){
 
 <h2>Post Source</h2>
 
-<form><textarea class="form-control" name="post_source" style="width:600px;height:400px;">
-<link rel="stylesheet" href="http://pine.jpn.com/bootstrap/css/bootstrap.min.css">
-<form class="new_reviewer" id="new_reviewer" action="http://review31.herokuapp.com/reviewers" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" />
+<form><textarea class="form-control" name="post_source" style="width:600px;height:400px;">&lt;link rel="stylesheet" href="http://pine.jpn.com/reviewer_app/bootstrap/css/bootstrap.min.css">
+&lt;form class="new_reviewer" id="new_reviewer" action="http://review31.herokuapp.com/reviewers" accept-charset="UTF-8" method="post" style="margin:20px; width:500px;">
+&lt;input name="utf8" type="hidden" value="✓" />
+&lt;div class="form-group">
+  &lt;label for="reviewer_name">お名前&lt;span class="text-danger">（必須）&lt;/span>&lt;/label>
+  &lt;input type="text" class="form-control" id="reviewer_name" name="reviewer[name]" placeholder="例）山田太郎">
+&lt;/div>
+&lt;div class="form-group">
+  &lt;label for="reviewer_star">星の数&lt;span class="text-danger">（必須）&lt;/span>&lt;/label>
+  &lt;select class="form-control" name="reviewer[star]" id="reviewer_star">
+    &lt;option value="5">★★★★★&lt;/option>
+    &lt;option value="4">★★★★☆&lt;/option>
+    &lt;option value="3">★★★☆☆&lt;/option>
+    &lt;option value="2">★★☆☆☆&lt;/option>
+    &lt;option value="1">★☆☆☆☆&lt;/option>
+  &lt;/select>
+&lt;/div>
+&lt;div class="form-group">
+  &lt;label for="reviewer_comment">Comment&lt;span class="text-danger">（必須）&lt;/span>&lt;/label>
+  &lt;textarea class="form-control" name="reviewer[comment]" id="reviewer_comment" rows="6">&lt;/textarea>
+&lt;/div>
+&lt;input name="reviewer[product_id]" type="hidden" value="<%= @productid.id %>" />
+&lt;div class="actions">
+  &lt;input type="submit" name="commit" value="レビューを投稿する" class="btn btn-default btn-primary" />
+&lt;/div>
+&lt;/form>
 
-  <div class="field">
-    <label for="reviewer_name">Name</label><span class="text-danger">（必須）</span><br>
-    <input type="text" name="reviewer[name]" id="reviewer_name" />
-  </div>
-  <div class="field">
-    <label for="reviewer_star">Star</label><span class="text-danger">（必須）</span><br>
-    <input type="number" name="reviewer[star]" id="reviewer_star" />
-  </div>
-
-  <div class="field">
-    <label for="reviewer_comment">Comment</label><span class="text-danger">（必須）</span><br>
-    <input type="text" name="reviewer[comment]" id="reviewer_comment" />
-  </div>
-
-<input name="reviewer[product_id]" type="hidden" value="<%= @productid.id %>" />
-  
-  <div class="actions">
-    <input type="submit" name="commit" value="Create Reviewer" />
-  </div>
-</form></textarea>
+&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">&lt;/script>
+&lt;script src="http://pine.jpn.com/reviewer_app/bootstrap/js/bootstrap.min.js">&lt;/script></textarea>
 
 <input type="button" class="btn change" onclick="DoCopy('post_source',this.form,0)" value="Select" style="margin-top:20px;" />
 
@@ -43,25 +48,25 @@ function DoCopy(name,form,sw){
 
 <h2>Reviewer Source</h2>
 
-<textarea class="form-control" name="review_source" style="width:600px;height:400px;"><link rel="stylesheet" href="http://pine.jpn.com/reviewer_app/bootstrap/css/bootstrap.min.css">
-<div class="review_box">
-<div>
-</div>
-</div>
-<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-<script>
+<textarea class="form-control" name="review_source" style="width:600px;height:400px;">&lt;link rel="stylesheet" href="http://pine.jpn.com/reviewer_app/bootstrap/css/bootstrap.min.css">
+&lt;div class="review_box">
+&lt;div>
+&lt;/div>
+&lt;/div>
+&lt;script src="http://code.jquery.com/jquery-1.10.2.min.js">&lt;/script>
+&lt;script>
 $(function(){
   $("div.review_box div").html("");
   $.getJSON("http://review31.herokuapp.com/products/<%= @productid.id %>/reviewers.json", function(data){
     $(data).each(function(){
-      $('<div class="star_point"><img src="http://pine.jpn.com/reviewer_app/image/star' + this.star + '.png"></div>'+
-        '<div class="reviewer_name">' + this.name + '</div>'+
-        '<div class="reviewer_comment">' + this.comment + '</div>'+
-        '<div class="created_at">' + this.created_at + '</div>').appendTo('div.review_box div');
+      $('&lt;div class="star_point">&lt;img src="http://pine.jpn.com/reviewer_app/image/star' + this.star + '.png">&lt;/div>'+
+        '&lt;div class="reviewer_name">' + this.name + '&lt;/div>'+
+        '&lt;div class="reviewer_comment">' + this.comment + '&lt;/div>'+
+        '&lt;div class="created_at">' + this.created_at + '&lt;/div>').appendTo('div.review_box div');
     })
   })
 });
-</script></textarea>
+&lt;/script></textarea>
 
 <input type="button" class="btn change" onclick="DoCopy('review_source',this.form,0)" value="Select" style="margin-top:20px;"/>
 
