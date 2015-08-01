@@ -24,7 +24,6 @@ ActiveRecord::Schema.define(version: 20150703213803) do
     t.string   "name"
     t.integer  "star"
     t.string   "comment"
-    t.integer  "user_id"
     t.integer  "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
