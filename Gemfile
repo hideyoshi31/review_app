@@ -16,6 +16,8 @@ gem 'coffee-rails', '~> 4.1.0'
 
 gem 'devise'
 
+gem 'kaminari'
+
 gem 'therubyracer' # javascript runtime。lessをコンパイルするために必要
 gem 'less-rails' # Railsでlessを使えるようにする。Bootstrapがlessで書かれているため
 gem 'twitter-bootstrap-rails' # Bootstrapの本体

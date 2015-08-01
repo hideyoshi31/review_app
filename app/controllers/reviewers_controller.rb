@@ -6,7 +6,7 @@ class ReviewersController < ApplicationController
   # GET /reviewers
   # GET /reviewers.json
   def index
-    @reviewers = Reviewer.all
+    @reviewers = Reviewer.page(params[:page])
   end
 
   # GET /reviewers/1

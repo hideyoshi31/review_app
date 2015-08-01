@@ -2,6 +2,8 @@
 
 <h1>Listing Reviewers</h1>
 
+<%= page_entries_info @reviewers %>
+
 <table class="table table-striped">
   <thead>
     <tr>
@@ -30,6 +32,12 @@
 
 <br>
 
+<div>
 <% if(current_user.id == 1) %>
   <%= link_to 'New Reviewer', new_reviewer_path, class: 'btn btn-primary visited-none' %>
 <% end %>
+</div>
+
+<div>
+<%= paginate @reviewers %>
+</div>
