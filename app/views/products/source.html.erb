@@ -43,7 +43,7 @@ function DoCopy(name,form,sw){
 
 <h2>Reviewer Source</h2>
 
-<textarea class="form-control" name="review_source" style="width:600px;height:400px;"><link rel="stylesheet" href="http://pine.jpn.com/bootstrap/css/bootstrap.min.css">
+<textarea class="form-control" name="review_source" style="width:600px;height:400px;"><link rel="stylesheet" href="http://pine.jpn.com/reviewer_app/bootstrap/css/bootstrap.min.css">
 <div class="review_box">
 <div>
 </div>
@@ -54,8 +54,8 @@ $(function(){
   $("div.review_box div").html("");
   $.getJSON("http://review31.herokuapp.com/products/<%= @productid.id %>/reviewers.json", function(data){
     $(data).each(function(){
-      $('<div class="reviewer_name">' + this.name + '</div>'+
-        '<div class="star_point">' + this.star + '</div>'+
+      $('<div class="star_point"><img src="http://pine.jpn.com/reviewer_app/image/star' + this.star + '.png"></div>'+
+        '<div class="reviewer_name">' + this.name + '</div>'+
         '<div class="reviewer_comment">' + this.comment + '</div>'+
         '<div class="created_at">' + this.created_at + '</div>').appendTo('div.review_box div');
     })
