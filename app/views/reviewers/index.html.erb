@@ -18,7 +18,13 @@
         <tr>
           <td><%= reviewer.name %></td>
           <td><%= reviewer.star %></td>
-          <td><%= reviewer.comment %></td>
+          <td>
+            <% if (reviewer.comment.length >= 80)%>
+              <%= reviewer.comment[0, 80].concat("...") %>
+            <% else %>
+              <%= reviewer.comment %>
+            <% end %>
+          </td>
           <td><%= link_to 'Show', reviewer %></td>
           <td><%= link_to 'Edit', edit_reviewer_path(reviewer) %></td>
           <td><%= link_to 'Destroy', reviewer, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs visited-none' %></td>

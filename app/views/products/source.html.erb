@@ -57,7 +57,7 @@ $(function(){
       $('<div class="star_point"><img src="http://pine.jpn.com/reviewer_app/image/star' + this.star + '.png"></div>'+
         '<div class="reviewer_name">' + this.name + '</div>'+
         '<div class="reviewer_comment">' + this.comment + '</div>'+
-        '<div class="created_at">' + this.created_at + '</div>').appendTo('div.review_box div');
+        '<div class="created_at">' + this.created_at.strftime("%Y/%m/%d(#{%w(日 月 火 水 木 金 土)[post.created_at.wday]})")  + '</div>').appendTo('div.review_box div');
     })
   })
 });
