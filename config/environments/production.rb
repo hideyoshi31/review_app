@@ -76,4 +76,16 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+
+  config.action_mailer.default_url_options = { :host => 'review31.herokuapp.com' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+  :address => 'turtlecat.xsrv.jp',
+  :port => 587,
+  :authentication => :plain,
+  :openssl_verify_mode => 'none',
+  :user_name => 'support@pine.jpn.com', # 送信するメールアドレス
+  :password => 'toshiya5955' #password
+  }
 end
