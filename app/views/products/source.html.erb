@@ -60,7 +60,7 @@ $(function(){
     $(data).each(function(){
       $('&lt;div>&lt;div class="star_point">&lt;img src="http://pine.jpn.com/reviewer_app/image/star' + this.star + '.png">&lt;/div>'+
         '&lt;div class="reviewer_name">' + this.name + '&lt;/div>'+
-        '&lt;div class="reviewer_comment">' + this.comment + '&lt;/div>'+
+        '&lt;div class="reviewer_comment">' + this.comment.replace(/[\n]/g, "<br />") + '&lt;/div>'+
         '&lt;div class="created_at">' + this.created_at.substr(0,10) + '&lt;/div>&lt;/div>').appendTo('div.review_box');
     })
   })
