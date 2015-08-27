@@ -1,7 +1,7 @@
 class ReviewersController < ApplicationController
   before_action :set_reviewer, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:new, :create, :view]
-  protect_from_forgery :except => [:create]
+  before_action :authenticate_user!, except: [:new, :create, :view, :update]
+  protect_from_forgery :except => [:create, :update]
 
   # GET /reviewers
   # GET /reviewers.json
