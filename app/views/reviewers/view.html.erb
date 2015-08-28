@@ -24,6 +24,7 @@
               <%= reviewer.comment %>
             <% end %>
           </td>
+        <td><%= reviewer.hide %></td>
         <td><%= link_to 'Show', reviewer %></td>
         <td><%= link_to 'Edit', edit_reviewer_path(reviewer) %></td>
         <td><%= link_to 'Destroy', reviewer, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs visited-none' %></td>
