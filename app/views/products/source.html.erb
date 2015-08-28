@@ -35,6 +35,8 @@ function DoCopy(name,form,sw){
   &lt;textarea class="form-control" name="reviewer[comment]" id="reviewer_comment" rows="6">&lt;/textarea>
 &lt;/div>
 &lt;input name="reviewer[product_id]" type="hidden" value="<%= @productid.id %>" />
+&lt;input name="reviewer[vote_y]" type="hidden" value="0" />
+&lt;input name="reviewer[vote_n]" type="hidden" value="0" />
 &lt;div class="actions">
   &lt;input type="submit" name="commit" value="レビューを投稿する" class="btn btn-default btn-primary" />
 &lt;/div>
@@ -49,23 +51,21 @@ function DoCopy(name,form,sw){
 
 <h2>Reviewer Source</h2>
 
-<textarea class="form-control" name="review_source" style="width:600px;height:400px;">&lt;link rel="stylesheet" href="http://pine.jpn.com/reviewer_app/bootstrap/css/bootstrap.min.css">
-&lt;div class="review_box">
-&lt;/div>
-&lt;script src="http://code.jquery.com/jquery-1.10.2.min.js">&lt;/script>
-&lt;script>
-$(function(){
-  $("div.review_box div").html("");
-  $.getJSON("http://review31.herokuapp.com/products/<%= @productid.id %>/reviewers.json", function(data){
-    $(data).each(function(){
-      $('&lt;div>&lt;div class="star_point">&lt;img src="http://pine.jpn.com/reviewer_app/image/star' + this.star + '.png">&lt;/div>'+
-        '&lt;div class="reviewer_name">' + this.name + '&lt;/div>'+
-        '&lt;div class="reviewer_comment">' + this.comment.replace(/[\n]/g, "<br />") + '&lt;/div>'+
-        '&lt;div class="created_at">' + this.created_at.substr(0,10) + '&lt;/div>&lt;/div>').appendTo('div.review_box');
-    })
-  })
-});
-&lt;/script></textarea>
+<textarea class="form-control" name="review_source" style="width:600px;height:400px;">&lt;script src="http://code.jquery.com/jquery-1.10.2.min.js">&lt;/script>
+&lt;script type="text/javascript" src="http://pine.jpn.com/reviewer_app/pagenate/jquery.simplePagination.js">&lt;/script>
+&lt;link type="text/css" rel="stylesheet" href="http://pine.jpn.com/reviewer_app/pagenate/simplePagination.css"/>
+&lt;link rel="stylesheet" href="http://pine.jpn.com/reviewer_app/bootstrap/css/bootstrap.min.css">
+&lt;link rel="stylesheet" href="http://pine.jpn.com/reviewer_app/css/reviewer.css">
+&lt;script type="text/javascript">
+productId = <%= @productid.id %>;
+item = 5;
+&lt;/script>
+&lt;script src="http://pine.jpn.com/reviewer_app/js/reviewer.js">&lt;/script>
+
+&lt;div style="width: 90%; margin: 30px;">
+&lt;div class="review_box">&lt;/div>
+&lt;div id="paging" style="margin-left: 20px;">&lt;/div>
+&lt;/div></textarea>
 
 <input type="button" class="btn change" onclick="DoCopy('review_source',this.form,0)" value="Select" style="margin-top:20px;"/>
 
