@@ -6,7 +6,7 @@ class ReviewersController < ApplicationController
   # GET /reviewers
   # GET /reviewers.json
   def index
-    @reviewers = Reviewer.page(params[:page])
+    @reviewers = Reviewer.order(id: :desc).page(params[:page])
   end
 
   # GET /reviewers/1
@@ -62,7 +62,7 @@ class ReviewersController < ApplicationController
   end
 
   def view
-    @reviewers = Product.find(params[:id]).reviewers
+    @reviewers = Product.find(params[:id]).reviewers.order(id: :desc).page(params[:page])
   end
 
   private
